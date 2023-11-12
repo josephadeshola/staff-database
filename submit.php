@@ -3,8 +3,6 @@
 require 'connection.php';
 session_start();
 if (isset($_POST['submit'])) {
-    // print_r($_POST);
-
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $email = $_POST['email'];
@@ -12,21 +10,13 @@ if (isset($_POST['submit'])) {
     $gender = $_POST['gender'];
     $profile = $_FILES['profile_pic'];
     $address = $_POST['address'];
-
     $name = $_FILES['profile_pic']['name'];
     $temp = $_FILES['profile_pic']['tmp_name'];
-    // echo $name;
-
     $newname = time() . $name;
     $movefile = move_uploaded_file($temp, 'images/' . $newname);
-    // echo $newname;
-
     if ($movefile) {
-        //     $query = "UPDATE * mystaff SET profile_pic ='$newname' WHERE staff_id =$staffid";
-        //     $querycon = $dbconnection->query($query);
         $query = "SELECT * FROM mystaff WHERE email='$email'";
         $emailverify = $dbconnection->query($query);
-
         if ($emailverify->num_rows > 0) {
             $_SESSION["msg"] = "Email is already exist";
             header('location:sign.php');
@@ -50,9 +40,5 @@ if (isset($_POST['submit'])) {
         }
 
     }
-
-
-
-
 }
 ?>

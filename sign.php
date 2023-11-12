@@ -16,7 +16,7 @@
             margin: 0;
         }
         .getstyle{
-            background-color: #f0f0f0; /* Same as body background color */
+            background-color: #f0f0f0;
             border-radius: 20px;
             justify-content:space-between;
             box-shadow: 5px 5px 15px #b9b9b9, -5px -5px 15px #ffffff;
@@ -35,8 +35,6 @@
                     }
                     session_unset();
                     ?> 
-              
-
             <form action="submit.php" method="post" enctype="multipart/form-data">
                     <input type="text" placeholder="first-name" name="firstname" class="col-md-12 shadow form-control col-12 py-1 rounded border border-none bg-body-secondary mt-3 pb-2 ">
                     <input type="text" placeholder="last-name" name="lastname" class="col-md-12 shadow form-control col-12 py-1 rounded border border-none bg-body-secondary mt-3 pb-2 ">

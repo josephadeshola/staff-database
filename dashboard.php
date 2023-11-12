@@ -7,7 +7,6 @@ if (isset($_SESSION['staff_id'])) {
     $querycon = $dbconnection->query($query);
     $user = $querycon->fetch_assoc();
     $profile = $user['profile_pic'];
-
 }
 ?>
 
@@ -38,7 +37,7 @@ if (isset($_SESSION['staff_id'])) {
 
             }
         .nav-wrapper {
-            background-color: #f0f0f0; /* Same as body background color */
+            background-color: #f0f0f0; 
             border-radius: 20px;
             padding: 6px;
             display:flex;

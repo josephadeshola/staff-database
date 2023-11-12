@@ -14,20 +14,14 @@
     session_start();
     if (isset($_POST['submit'])) {
         $email = $_POST['email'];
-        $password = $_POST['password']; 
+        $password = $_POST['password'];
         $query = "SELECT * FROM mystaff WHERE email='$email'";
         $query = $dbconnection->query($query);
         if ($query->num_rows > 0) {
-
             $user = $query->fetch_assoc();
-            // print_r ($user);
             $hashpassword = $user['password'];
-            // print_r ($passwordhashed);
             $userid = $user['staff_id'];
-            // print_r ($userid);
             $passwordverify = password_verify($password, $hashpassword);
-            // echo $passwordverify;
-    
             if ($passwordverify) {
                 echo $userid;
                 $_SESSION['staff_id'] = $userid;
@@ -35,10 +29,9 @@
             } else {
                 $_SESSION['msg'] = 'incorrect password';
             }
-
         } else {
             echo '<div class="alert alert-danger">Invalid Email Address</div>';
-            // header('location:signin.php');
+
         }
     }
     ?>
@@ -51,7 +44,7 @@
             margin: 0;
         }
         .getstyle{
-            background-color: #f0f0f0; /* Same as body background color */
+            background-color: #f0f0f0; 
             border-radius: 20px;
             justify-content:space-between;
             box-shadow: 5px 5px 15px #b9b9b9, -5px -5px 15px #ffffff;
@@ -63,7 +56,7 @@
     <h5 class="text-center">Login page</h5>
     <?php
     if (isset($_SESSION['msg'])) {
-    echo '<div class="alert alert-danger text-center">' . $_SESSION['msg'] . '<div>';
+        echo '<div class="alert alert-danger text-center">' . $_SESSION['msg'] . '<div>';
     }
     ?>
     
